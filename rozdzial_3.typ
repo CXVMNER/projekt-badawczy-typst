@@ -1,136 +1,30 @@
 #import "wipb.typ": *
+= Tło projektu
 
-= Przykładowy rozdział // deklarowanie rozdziału
+W celu pogłębienia wiedzy dotyczącej tematyki projektu oraz odpowiedniego przygotowania do jego realizacji przeprowadzono konsultacje z ekspertem oraz dokonano analizy istniejących rozwiązań o podobnym charakterze. Działania te miały na celu rozpoznanie dostępnych metod, identyfikację potencjalnych źródeł danych oraz wybór podejść badawczych, które mogą zostać wykorzystane w dalszych etapach prac.
 
-== Wypunktowania
-+ punkt
-+ punkt
-+ wypunkowania można mieszać
-  #list(indent: 1.35em, body-indent: 0.5em, spacing: 19.8pt)[punkt][punkt]
-+ punkt
-  #enum(numbering: "(a)", indent: 0.59em, body-indent: 0.5em, spacing: 19.8pt)[punkt][punkt]
+== Konsultacja z ludzkim ekspertem
 
-== Cytowania
-Tak cytujemy @NagraTC02 lub kilka @NagraTC02 @iso9126 @godot_book albo @NagraTC02[str. 3]. Zasoby internetowe powinny zawierać datę dostępu @lctsc2017dataset @godot_docs.
+W ramach przygotowań do realizacji projektu skonsultowano się z profesorem Jackiem Grekowem, aby uzyskać wskazówki dotyczące możliwych kierunków rozwoju rozwiązania. Podczas rozmowy poruszono zagadnienia związane z dostępnością gotowych modeli, pozyskiwaniem zbiorów danych, doborem odpowiednich metod uczenia maszynowego oraz zakresem zagadnień, które powinny zostać uwzględnione w pracy.
 
-== Tabele
+Jedną z zaproponowanych koncepcji było wykorzystanie metod ekstrakcji cech akustycznych z sygnału muzycznego, na przykład z zastosowaniem biblioteki *Essentia*. W ten sposób możliwe jest uzyskanie zbioru parametrów opisujących poszczególne nagrania. Liczba wyodrębnionych cech może wynosić nawet kilkadziesiąt lub ponad sto, w zależności od przyjętej konfiguracji oraz charakterystyki analizowanego sygnału. Tak przygotowane dane mogłyby następnie posłużyć jako wejście dla algorytmu klasyfikacyjnego, takiego jak drzewo decyzyjne.
 
-#figure(
-  table(
-    columns: 3,
-    align: center + horizon,
-    table.cell(colspan: 2, rowspan: 2)[combined cells], [top right],
-    [middle right],
-    [bottom left], [bottom center], [bottom right],
-  ),
-  caption: [Przykładowa tabela],
-  placement: bottom,
-) <tab:prz>
+Alternatywnym podejściem jest zastosowanie konwolucyjnych sieci neuronowych (CNN, *Convolutional Neural Networks*), które mogą analizować reprezentację sygnału muzycznego w postaci spektrogramu. Rozwiązanie to umożliwia wykorzystanie metod głębokiego uczenia do rozpoznawania wzorców w strukturze czasowo-częstotliwościowej dźwięku. Ekspert zwrócił jednak uwagę na potencjalną wartość badawczą drzew decyzyjnych, między innymi ze względu na możliwość interpretacji procesu klasyfikacji oraz analizowania znaczenia poszczególnych cech wejściowych.
 
-Przykład formatowania #ref(<tab:prz>, supplement: [Tabeli]). Tak właśnie odwołujemy się do~tabel. // ~ zapobiega łamaniu wierszy w danym miejscu
+Podczas konsultacji omówiono również możliwość zastosowania zespołu klasyfikatorów. W przypadku opracowania trzech niezależnych modeli można wykorzystać metodę głosowania większościowego (*majority voting*), w której ostateczna predykcja jest wyznaczana na podstawie wyniku wskazanego przez największą liczbę modeli. Podejście to mogłoby stanowić dodatkowy kierunek badań, pozwalający ocenić, czy połączenie kilku algorytmów poprawia skuteczność klasyfikacji.
 
-=== Rysunki
-Rysunki najlepiej dodawać w formacie EPS. Rysunek~#ref(<fig:przyklad>, supplement: none) w taki sposób odwołujemy się do rysunków. Narzędzia jak pdflatex pozwalają wykorzystać bitmapy w formatach jak PNG (patrz Rys.~#ref(<fig:przyklad2>, supplement: none)).
+Jako najbardziej uzasadniony kierunek dalszych prac ekspert zasugerował jednak skoncentrowanie się na porównaniu dwóch odmiennych podejść. W szczególności zaproponowano zestawienie klasyfikatora opartego na cechach akustycznych i drzewie decyzyjnym z modelem wykorzystującym konwolucyjną sieć neuronową analizującą spektrogramy. Takie porównanie pozwoliłoby ocenić skuteczność obu metod w realizacji założonego zadania, a także określić ich zalety i ograniczenia.
 
-// Typst nie czyta EPS — rysunek został skonwertowany do wektorowego SVG
-// (zapasowy PNG 300 dpi: grafika/ps03impulse.png)
-#figure(
-  image("grafika/ps03impulse.svg", width: 100%),
-  caption: [Opis rysunku w formacie EPS],
-  placement: top,
-) <fig:przyklad>
+== Konsultacja ze sztuczną inteligencją
 
-#figure(
-  image("grafika/abvol2.png", width: 10cm),
-  caption: [Opis rysunku w formacie PNG],
-  placement: top,
-) <fig:przyklad2>
+W ramach przygotowań do realizacji projektu przeprowadzono konsultację ze sztuczną inteligencją, której celem było uzyskanie dodatkowych wskazówek dotyczących wyboru zbiorów danych, metod uczenia maszynowego oraz sposobu przeprowadzenia eksperymentów. Konsultacja pozwoliła zidentyfikować potencjalne kierunki badań oraz zagadnienia, które warto uwzględnić podczas projektowania i oceny systemu rozpoznawania gatunków muzycznych.
 
-#paragraf[Równania][Równania matematyczne tworzymy przez:]
-$ R_(i,j) = H(epsilon_i - bar.v.double x_i - x_j) $ <equa:rr>
-#noindent[W Równaniu~#eqref(<equa:rr>) przedstawiono …lub małe wstawki matematyczne $R_(i,j) = H(epsilon_i - bar.v.double x_i - x_j)$ w tej samej lini lub w nowej]
-#[
-  #set math.equation(numbering: none)
-  $ R_(i,j) = H(epsilon_i - bar.v.double x_i - x_j) $
-]
-#noindent[.]
+W zakresie doboru danych zaproponowano wykorzystanie zbioru *FMA-medium (Free Music Archive)* jako głównego źródła nagrań oraz zbioru *GTZAN* do przeprowadzenia dodatkowych testów porównawczych. Zwrócono uwagę na ograniczenia zbioru GTZAN, w tym występowanie duplikatów nagrań, błędnych etykiet oraz ryzyko uzyskania zawyżonych wyników w sytuacji, gdy utwory tego samego wykonawcy znajdują się jednocześnie w zbiorze treningowym i testowym. W związku z tym podkreślono znaczenie odpowiedniego podziału danych, uwzględniającego tożsamość wykonawców, co pozwala na bardziej wiarygodną ocenę zdolności modelu do klasyfikowania nieznanych wcześniej nagrań.
 
-== Listingi
-Korzystając ze środowiska listings możemy formatować listingi.
-#listing(
-  "listings/tomtorfs.c",
-  rozmiar: 10pt,
-  podpis: [Zwycięzca 14th International Obfuscated C Code Contest w kategorii Best Self-Documenting - Tom Torfs],
-) <tomtorfs>
-Na Listingu~#ref(<tomtorfs>, supplement: none) przedstawiono listing bez ramki a na Listingu~#ref(<ramka>, supplement: none) z ramką.
+W odniesieniu do metod klasyfikacji zaproponowano rozważenie kilku podejść o różnym stopniu złożoności. Pierwszym z nich jest zastosowanie klasycznych algorytmów uczenia maszynowego, takich jak drzewa decyzyjne, Random Forest lub SVM, wykorzystujących cechy akustyczne wyodrębnione z nagrań. Do cech tych mogą należeć między innymi współczynniki MFCC, charakterystyki widmowe, chroma oraz tempo utworu. Drugim podejściem jest wykorzystanie konwolucyjnych sieci neuronowych (CNN), które analizują spektrogramy muzyczne i samodzielnie uczą się rozpoznawać wzorce charakterystyczne dla poszczególnych gatunków. Dodatkowo wskazano możliwość wykorzystania gotowych, wcześniej wytrenowanych modeli, których reprezentacje dźwięku mogą stanowić dane wejściowe dla prostszego klasyfikatora.
 
-#listing(
-  "listings/ramka.c",
-  rozmiar: 12pt,
-  ramka: true,
-  podpis: [Listing z ramką],
-  podpis-na-dole: true,
-) <ramka>
+Podczas konsultacji podkreślono, że istotnym elementem pracy powinno być nie tylko uzyskanie wysokiej skuteczności klasyfikacji, lecz także rzetelne porównanie zastosowanych metod. W tym celu zalecono uwzględnienie odpowiednich miar oceny, takich jak macro-F1, która umożliwia bardziej sprawiedliwe porównanie wyników dla poszczególnych klas w przypadku niezrównoważonego zbioru danych. Wskazano również na przydatność macierzy pomyłek, pozwalającej określić, które gatunki muzyczne są najczęściej ze sobą mylone. Ponadto zaproponowano przeprowadzenie eksperymentów z różnymi sposobami podziału danych oraz sprawdzenie, czy modele zachowują skuteczność podczas testowania na nagraniach pochodzących z innego zbioru niż ten wykorzystany w procesie uczenia.
 
-== Algorytmy
-Algorytm~#ref(<algo_disjdecomp>, supplement: none) przedstawia …
+Jako rekomendowany kierunek dalszych prac wskazano porównanie klasycznego podejścia opartego na ręcznie wyodrębnionych cechach akustycznych z metodą wykorzystującą głębokie uczenie na spektrogramach. Dodatkowym elementem badania mogłaby być ocena wpływu sposobu przygotowania danych na uzyskiwane wyniki. Takie podejście pozwoliłoby określić nie tylko, która z metod osiąga lepsze rezultaty, ale również jakie są jej ograniczenia oraz w jakim stopniu wyniki eksperymentalne odzwierciedlają rzeczywistą zdolność rozpoznawania gatunków muzycznych.
 
-#algorytm([Disjoint decomposition])[
-  #wejscie("input", 0.55em)[A bitmap $I m$ of size $w times l$]
-
-  #wejscie("output", 0em)[A partition of the bitmap]
-
-  #v(5.3pt)
-  _special treatment of the first line_;
-
-  #kw[for] $i arrow.l 2$ #kw[to] $l$ #kw[do]
-  #blok[
-    _special treatment of the first element of line $i$_;
-
-    #kw[for] $j arrow.l 2$ #kw[to] $w$ #kw[do]
-    #blok[
-      #dane[left] $arrow.l$ #funk("FindCompress", [$I m[i, j - 1]$]);
-
-      #dane[up] $arrow.l$ #funk("FindCompress", [$I m[i - 1, ]$]);
-
-      #dane[this] $arrow.l$ #funk("FindCompress", [$I m[i, j]$]);
-
-      #kw[if] #dane[left] _compatible with_ #dane[this] #kw[then]
-      #blok[
-        #kw[if] #dane[left] $<$ #dane[this] #kw[then] #funk("Union", dane[left], dane[this]);
-
-        ; // pusty wiersz z średnikiem — artefakt \lIf{…}{…}\; w oryginale
-
-        #kw[else] #funk("Union", dane[this], dane[left]);
-      ]
-      #kw[end]
-
-      #kw[if] #dane[up] _compatible with_ #dane[this] #kw[then]
-      #blok[
-        #kw[if] #dane[up] $<$ #dane[this] #kw[then] #funk("Union", dane[up], dane[this]);
-
-        ;
-
-        #kw[else] #funk("Union", dane[this], dane[up]);
-      ]
-      #kw[end]
-    ]
-    #kw[end]
-
-    #kw[foreach] _element_ $e$ _of the line_ $i$ #kw[do] #funk("FindCompress", [$p$]);
-  ]
-  #kw[end]
-] <algo_disjdecomp>
-
-#pagebreak()
-== Schematy
-
-Schematy można wykonać przy użyciu środowiska tikz #footnote[Przykład zaczerpnięty ze strony @przyklad2]:
-// Diagram TikZ (mindmap) przeniesiony jako wektorowy SVG; zapasowy PNG: grafika/schemat_mindmap.png
-#figure(
-  image("grafika/schemat_mindmap.svg", width: 421pt),
-  caption: [Computer science mindmap],
-) <fig:mindmap>
-
-== Podsumowanie
-Do składania prac dyplomowych polecam wieloplatformowy edytor #href("https://www.xm1math.net/texmaker/")[TexMaker] wraz z~dystrybucją  #href("http://miktex.org/")[MikTeX] lub TeX Live.
+Wnioski z konsultacji ze sztuczną inteligencją stanowią uzupełnienie wskazówek uzyskanych podczas rozmowy z ekspertem. Pomagają doprecyzować plan badań, wskazać potencjalne problemy związane z jakością danych oraz zaplanować sposób porównania wybranych algorytmów. Ostateczny wybór zbiorów danych i metod powinien jednak uwzględniać zakres projektu, dostępne zasoby obliczeniowe oraz wyniki przeprowadzonych eksperymentów.

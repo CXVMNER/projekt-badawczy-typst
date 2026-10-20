@@ -10,25 +10,21 @@
 // ---- dane pracy (odpowiednik \katedra{…}, \temat{…}, \autor{…} …) -------------
 #let meta = (
   katedra: "Oprogramowania",
-  typ-pracy: "inżynierska",            // lub "magisterska"
+  typ-pracy: "inżynierska", // lub "magisterska"
   temat: "Opis użycia klasy wipb",
   autor: "Gal Anonim",
   promotor: "dr inż. Jan Kowalski",
   indeks: "123456",
-  studia: "stacjonarne",               // lub "niestacjonarne"
+  studia: "stacjonarne", // lub "niestacjonarne"
   rok-akademicki: "2008/2009",
   profil: "magisterskie jednolite",
-  kierunek: "informatyka",             // lub "matematyka"
+  kierunek: "informatyka", // lub "matematyka"
   specjalnosc: "Inżynieria Oprogramowania",
   zakres: "1. zakres I, 2. zakres II, 3. zakres III",
 )
 
 // ---- \hypersetup{pdfauthor=…, pdftitle=…, pdfkeywords=…} ---------------------
-#show: wipb.with(
-  autor: "mgr inż. Maciej Brzozowski",
-  temat: "Opis użycia klasy wipb",
-  slowa-kluczowe: ("Praca dyplomowa",),
-)
+#show: wipb.with()
 
 // \includepdf{strona-tytulowa.pdf} — odtworzona natywnie (puste pola z kropkami).
 // Aby wstawić dane z `meta`:  #strona-tytulowa(meta: meta, wypelnij: true)
@@ -39,9 +35,7 @@
   // stronie tytułowej). Nowe pozycje dopisz w miejscu wynikającym z sortowania;
   // niewymienione dostaną kolejne numery.
   tresc-dodatkowa: kolejnosc-bibliografii(
-    <godot_docs>,
     <iso9126>,
-    <godot_book>,
     <przyklad2>,
     <NagraTC02>,
     <lctsc2017dataset>,
@@ -61,6 +55,10 @@
 #include "rozdzial_2.typ"
 #include "rozdzial_3.typ"
 #include "rozdzial_4.typ"
+#include "rozdzial_5.typ"
+#include "rozdzial_6.typ"
+#include "rozdzial_7.typ"
+#include "rozdzial_8.typ"
 
 // \bibliography{bibliografia}
 #bibliografia()
