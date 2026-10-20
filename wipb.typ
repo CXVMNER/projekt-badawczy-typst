@@ -247,7 +247,7 @@
       align(center, text(size: rozmiar, weight: waga, top-edge: "baseline", bottom-edge: "baseline", tresc)),
     ),
   )
-  let typ = upper(meta.at("typ-pracy", default: "inżynierska"))
+  let typ = upper(meta.at("typ-pracy", default: "badawcza"))
   let rok = datetime.today().year()
 
   page(margin: 0pt, numbering: none, footer: none)[
