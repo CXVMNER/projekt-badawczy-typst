@@ -62,7 +62,8 @@
 // ------------------------------------------------------------- algorithm2e ----
 #let kw(x) = strong(x)                                // słowa kluczowe: for, to, do, if, then, else, end
 #let dane(x) = text(font: font-sans, x)               // \SetKwData  → bezszeryfowa
-#let funk(nazwa, ..arg) = {                           // \SetKwFunction → maszynowa
+#let funk(nazwa, ..arg) = {
+  // \SetKwFunction → maszynowa
   text(font: font-mono, nazwa)
   [(]
   arg.pos().join[,]
@@ -149,7 +150,9 @@
   block(width: 100%, above: nad, below: interlinia, {
     set par(first-line-indent: 0pt, justify: false, hanging-indent: wciecie + szer)
     set text(weight: if pogrubiony { "bold" } else { "regular" })
-    link(loc)[#h(wciecie)#box(width: szer, numer)#tekst#if kropki [#box(width: 1fr, repeat(gap: 0.5em)[.])#h(1em)] else [#h(1fr)]#box(width: 1.5em, align(right, strona))]
+    link(loc)[#h(wciecie)#box(width: szer, numer)#tekst#if kropki [#box(width: 1fr, repeat(gap: 0.5em)[.])#h(
+          1em,
+        )] else [#h(1fr)]#box(width: 1.5em, align(right, strona))]
   })
 }
 
@@ -253,17 +256,23 @@
     #tresc-dodatkowa
     #sr(64.2pt, 20pt, "POLITECHNIKA BIAŁOSTOCKA", waga: "bold")
     #sr(103.5pt, 14pt, "WYDZIAŁ INFORMATYKI", waga: "bold")
-    #sr(162.6pt, 18pt, [PRACA DYPLOMOWA #typ])
-    #w(71pt, 235.3pt, 14pt, [TEMAT: #pole("temat", 110)])
-    #w(248pt, 362.2pt, 14pt, [WYKONAWCA: #pole("autor", 49)])
-    #w(389.6pt, 378pt, 11pt, [imiona i nazwisko], styl: "italic")
-    #w(71pt, 487.4pt, 14pt, [OPIEKUN PRACY DYPLOMOWEJ : #pole("promotor", 51)])
-    #w(303.4pt, 503.2pt, 11pt, [imiona i nazwisko], styl: "italic")
-    #if wypelnij {
-      sr(729.9pt, 14pt, [#strong[BIAŁYSTOK] #rok #strong[ROK]])
-    } else {
-      sr(729.9pt, 14pt, [#strong[BIAŁYSTOK] #("." * 12) #strong[ROK]])
-    }
+    #sr(162.6pt, 18pt, [PRACA #typ])
+    #w(71pt, 235.3pt, 14pt, [TEMAT: Rozpoznawanie gatunków muzycznych z wykorzystaniem metod \
+      \
+      uczenia maszynowego ])
+    #w(248pt, 362.2pt, 14pt, [
+      WYKONAWCY:
+    ])
+    #w(343pt, 362.2pt, 14pt, [
+      Paweł Oświeciński
+    ])
+    #w(343pt, 382.2pt, 14pt, [
+      Michał Puławski
+    ])
+    #w(343pt, 402.2pt, 14pt, [
+      Aleksander Żyliński
+    ])
+    #sr(729.9pt, 14pt, [#strong[BIAŁYSTOK 2026 ROK]])
   ]
 }
 
@@ -284,15 +293,23 @@
   #v(2fr)
   #align(right, text(size: 20.74pt)[Wykonawca: #meta.autor])
   #v(1fr)
-  #align(left, text(size: 20.74pt)[Opiekun pracy dyplomowej: #meta.promotor])
-  #v(2fr)
   #text(size: 20.74pt)[Białystok #datetime.today().year() r.]
 ]
 
 // \biblioteka{tak/nie} — oświadczenie o udostępnieniu pracy w Bibliotece PB
 #let _miesiace = (
-  "stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca",
-  "lipca", "sierpnia", "września", "października", "listopada", "grudnia",
+  "stycznia",
+  "lutego",
+  "marca",
+  "kwietnia",
+  "maja",
+  "czerwca",
+  "lipca",
+  "sierpnia",
+  "września",
+  "października",
+  "listopada",
+  "grudnia",
 )
 #let biblioteka(meta, zgoda: true) = page(numbering: none)[
   #set par(first-line-indent: 0pt)
@@ -445,3 +462,4 @@
 
   body
 }
+

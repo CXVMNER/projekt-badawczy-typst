@@ -1,6 +1,2 @@
 = Wstęp
-Anomalią ruchu sieciowego nazywamy każde odstępstwo od wcześniej obserwowanego wzorca przepływu danych w sieci komputerowej. Wykrywanie takich zjawisk może być wykorzystane m.in. w procesie zabezpieczania sieci (systemy wykrywania intruzów) lub w systemach wykrywania/zapobiegania awariom. Niezależnie od tego, czy ruch sieciowy rozpatrujemy jako pewną ilość przepływów czy też analizujemy przesyłanie poszczególnych jednostek transmisyjnych, rozmiar danych analizowanych jest zawsze olbrzymi. Dodatkowo wykrywanie anomalii jest z samego założenia procesem, który powinien być realizowany w czasie pracy sieci, co z kolei stawia określone wymagania dotyczące szybkości przetwarzania. Uzasadnione zatem wydaje się podejście oparte na analizie danych agregowanych. Stosowanie metod statystycznych w procesie analizy utrudnia ich interpretacji w odniesieniu do realnych zdarzeń w sieci komputerowej. Wykrywanie anomalii ruchu sieciowego jest jednym ze sposobów identyfikacji naruszeń bezpieczeństwa sieci komputerowej oraz wykrywania uszkodzeń sieci.
-
-Celem pracy jest analiza dynamiki protokołu komunikacyjnego ARP w lokalnej sieci Ethernet…
-
-Praca podzielona jest na pięć rozdziałów. W rozdziale drugim przedstawiono przegląd literatury dotyczący metod badań sieci komputerowych. W rozdziale 3…W rozdziale czwartym przedstawiono wyniki analizy zmian w czasie ilości ramek ARP rejestrowanych w jednominutowych przedziałach czasu. Badania przeprowadzono w małej akademickiej sieci komputerowej składającej się z 42 komputerów.
+#lorem(300)
