@@ -28,3 +28,7 @@ Podczas konsultacji podkreślono, że istotnym elementem pracy powinno być nie 
 Jako rekomendowany kierunek dalszych prac wskazano porównanie klasycznego podejścia opartego na ręcznie wyodrębnionych cechach akustycznych z metodą wykorzystującą głębokie uczenie na spektrogramach. Dodatkowym elementem badania mogłaby być ocena wpływu sposobu przygotowania danych na uzyskiwane wyniki. Takie podejście pozwoliłoby określić nie tylko, która z metod osiąga lepsze rezultaty, ale również jakie są jej ograniczenia oraz w jakim stopniu wyniki eksperymentalne odzwierciedlają rzeczywistą zdolność rozpoznawania gatunków muzycznych.
 
 Wnioski z konsultacji ze sztuczną inteligencją stanowią uzupełnienie wskazówek uzyskanych podczas rozmowy z ekspertem. Pomagają doprecyzować plan badań, wskazać potencjalne problemy związane z jakością danych oraz zaplanować sposób porównania wybranych algorytmów. Ostateczny wybór zbiorów danych i metod powinien jednak uwzględniać zakres projektu, dostępne zasoby obliczeniowe oraz wyniki przeprowadzonych eksperymentów.
+
+== Analiza dostępnych rozwiązań
+
+#lorem(100)
