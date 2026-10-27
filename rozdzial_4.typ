@@ -28,17 +28,13 @@ Do oceny na danych z innego źródła wykorzystany zostanie zbiór GTZAN @tzanet
   table(
     columns: (1fr, 2.6cm, 3.6cm),
     align: (left, center, center),
-    stroke: none,
     inset: (x: 5pt, y: 4pt),
-    table.hline(stroke: 0.8pt),
     table.header([*Kryterium*], [*CNN*], [*Drzewo decyzyjne*]),
-    table.hline(stroke: 0.5pt),
     [macro-F1 na zbiorze testowym FMA (5 klas)], [≥ 0,60], [≥ 0,45],
     [liczba klas z F1 ≥ 0,50 (udział klas)], [≥ 3 z 5 (60%)], [≥ 2 z 5 (40%)],
     [najgorsza klasa: F1], [≥ 0,30], [≥ 0,20],
     [macro-F1 na GTZAN (5 klas wspólnych)], [≥ 0,40], [≥ 0,30],
     [powtarzalność: odchylenie standardowe macro-F1 z 3 ziaren], [≤ 0,03], [≤ 0,03],
-    table.hline(stroke: 0.8pt),
   ),
   caption: [Cele ilościowe projektu],
 ) <tab:cele>

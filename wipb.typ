@@ -50,13 +50,6 @@
   numbering("1.1", rozdzial, nr)
 })
 
-// Numeracja pozycji bibliograficznych w kolejności alfabetycznej (jak plabbrv):
-// Typst numeruje wg pierwszego cytowania, więc w main.typ wywołujemy
-// niewidoczne cytowanie wszystkich pozycji w żądanej kolejności.
-// #let kolejnosc-bibliografii(..klucze) = place(top + left, hide({
-//   bibliography("bibliografia.bib")
-// }))
-
 // ------------------------------------------------------------- algorithm2e ----
 #let kw(x) = strong(x)                                // słowa kluczowe: for, to, do, if, then, else, end
 #let dane(x) = text(font: font-sans, x)               // \SetKwData  → bezszeryfowa
