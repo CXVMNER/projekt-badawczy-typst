@@ -31,9 +31,7 @@ Do oceny na danych z innego źródła wykorzystany zostanie zbiór GTZAN @tzanet
     stroke: none,
     inset: (x: 5pt, y: 4pt),
     table.hline(stroke: 0.8pt),
-    table.header(
-      [*Kryterium*], [*CNN*], [*Drzewo decyzyjne*],
-    ),
+    table.header([*Kryterium*], [*CNN*], [*Drzewo decyzyjne*]),
     table.hline(stroke: 0.5pt),
     [macro-F1 na zbiorze testowym FMA (5 klas)], [≥ 0,60], [≥ 0,45],
     [liczba klas z F1 ≥ 0,50 (udział klas)], [≥ 3 z 5 (60%)], [≥ 2 z 5 (40%)],

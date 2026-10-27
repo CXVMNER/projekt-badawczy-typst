@@ -23,38 +23,9 @@
   zakres: "1. zakres I, 2. zakres II, 3. zakres III",
 )
 
-// ---- \hypersetup{pdfauthor=…, pdftitle=…, pdfkeywords=…} ---------------------
 #show: wipb.with()
 
-// \includepdf{strona-tytulowa.pdf} — odtworzona natywnie (puste pola z kropkami).
-// Aby wstawić dane z `meta`:  #strona-tytulowa(meta: meta, wypelnij: true)
-// Aby użyć gotowego PDF-a (Typst >= 0.14):  #page(margin: 0pt)[#image("strona-tytulowa.pdf")]
-#strona-tytulowa(
-  // \bibliographystyle{plabbrv} sortuje alfabetycznie. Typst numeruje wg pierwszego
-  // cytowania, więc podajemy kolejność alfabetyczną kluczy (niewidoczne cytowania na
-  // stronie tytułowej). Nowe pozycje dopisz w miejscu wynikającym z sortowania;
-  // niewymienione dostaną kolejne numery.
-  tresc-dodatkowa: kolejnosc-bibliografii(
-  "alonso2023maest",
-  "bogdanov2013essentia",
-  "bogdanov2019mtgjamendo",
-  "choi2017crnn",
-  "defferrard2017fma",
-  "dyrektywa_dsm",
-  "essentia_licensing",
-  "essentia_models",
-  "essentia_models_license",
-  "flexer2007artist",
-  "fma_github",
-  "fma_licencje_hf",
-  "hershey2017vggish",
-  "mcfee2015librosa",
-  "pedregosa2011sklearn",
-  "pons2019musicnn",
-  "sturm2014gtzan",
-  "tzanetakis2002",
-  ),
-)
+#strona-tytulowa()
 
 // \maketitle (w oryginale wyłączone):  #maketitle(meta)
 

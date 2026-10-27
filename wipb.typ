@@ -53,11 +53,9 @@
 // Numeracja pozycji bibliograficznych w kolejności alfabetycznej (jak plabbrv):
 // Typst numeruje wg pierwszego cytowania, więc w main.typ wywołujemy
 // niewidoczne cytowanie wszystkich pozycji w żądanej kolejności.
-#let kolejnosc-bibliografii(..klucze) = place(top + left, hide({
-  for k in klucze.pos() {
-    //cite(k)
-  }
-}))
+// #let kolejnosc-bibliografii(..klucze) = place(top + left, hide({
+//   bibliography("bibliografia.bib")
+// }))
 
 // ------------------------------------------------------------- algorithm2e ----
 #let kw(x) = strong(x)                                // słowa kluczowe: for, to, do, if, then, else, end
@@ -213,14 +211,12 @@
 
 // ------------------------------------------------------------- bibliografia ---
 // plabbrv (BibTeX) → najbliższy styl wbudowany w Typst: IEEE (inicjały imion, numeracja [n])
-#let bibliografia(plik: "bibliografia.bib", tytul: [Bibliografia]) = {
-  show bibliography: set heading(outlined: false)
-  show bibliography: set par(
-    first-line-indent: 0pt,
-    justify: true,
-    leading: interlinia,
-    spacing: 23.8pt,
-  )
+#let bibliografia(plik: "bibliografia.yaml", tytul: [Bibliografia]) = {
+  show bibliography: it => {
+    show link: set text(blue)
+    show link: underline
+    it
+  }
   bibliography(plik, title: tytul, style: "ieee")
 }
 
@@ -367,7 +363,8 @@
     }
     if it.level == 1 {
       // \chapter: nowa strona, tytuł \Large\bfseries, numer z kropką
-      pagebreak(weak: true)
+      // pagebreak(weak: true)
+      colbreak()
       if it.numbering != none {
         // numeracja rysunków, tabel, listingów i równań liczona w obrębie rozdziału
         counter(figure.where(kind: image)).update(0)

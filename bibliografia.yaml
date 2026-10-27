@@ -1,0 +1,214 @@
+tzanetakis2002:
+  type: Article
+  author:
+    - George Tzanetakis
+    - Perry Cook
+  title: Musical genre classification of audio signals
+  date: 2002
+  page-range: 293-302
+  url: https://www.cs.cmu.edu/~gtzan/work/pubs/tsap02gtzan.pdf
+  parent:
+    type: Periodical
+    title: IEEE Transactions on Speech and Audio Processing
+    volume: 10
+    issue: 5
+  serial-number:
+    doi: 10.1109/TSA.2002.800560
+
+sturm2014gtzan:
+  type: Article
+  author: Bob L. Sturm
+  title: "The GTZAN dataset: Its contents, its faults, their effects on evaluation, and its future use"
+  date: 2014
+  page-range: 147-172
+  url: https://arxiv.org/abs/1306.1461
+  parent:
+    type: Periodical
+    title: Journal of New Music Research
+    volume: 43
+    issue: 2
+  serial-number:
+    doi: 10.1080/09298215.2014.894533
+
+flexer2007artist:
+  type: Article
+  author: Arthur Flexer
+  title: A closer look on artist filters for musical genre classification
+  date: 2007
+  url: https://ismir2007.ismir.net/proceedings/ISMIR2007_p341_flexer.pdf
+  parent:
+    type: Proceedings
+    title: International Society for Music Information Retrieval Conference (ISMIR)
+
+defferrard2017fma:
+  type: Article
+  author:
+    - Michaël Defferrard
+    - Kirell Benzi
+    - Pierre Vandergheynst
+    - Xavier Bresson
+  title: "FMA: A dataset for music analysis"
+  date: 2017
+  url: https://arxiv.org/abs/1612.01840
+  parent:
+    type: Proceedings
+    title: International Society for Music Information Retrieval Conference (ISMIR)
+  note: "arXiv:1612.01840"
+
+bogdanov2019mtgjamendo:
+  type: Article
+  author:
+    - Dmitry Bogdanov
+    - Minz Won
+    - Philip Tovstogan
+    - Alastair Porter
+    - Xavier Serra
+  title: "The MTG-Jamendo dataset for automatic music tagging"
+  date: 2019
+  url: https://repositori.upf.edu/server/api/core/bitstreams/c66cf295-ad09-4576-a938-d9466a84ec48/content
+  parent:
+    type: Proceedings
+    title: Machine Learning for Music Discovery Workshop, International Conference on Machine Learning (ICML)
+
+bogdanov2013essentia:
+  type: Article
+  author:
+    - Dmitry Bogdanov
+    - Nicolas Wack
+    - Emilia Gómez
+    - Sankalp Gulati
+    - Perfecto Herrera
+    - Oscar Mayor
+    - Gerard Roma
+    - Justin Salamon
+    - José Zapata
+    - Xavier Serra
+  title: "Essentia: an audio analysis library for music information retrieval"
+  date: 2013
+  url: https://ismir2013.ismir.net/wp-content/uploads/2013/09/177_Paper.pdf
+  page-range: 493-498
+  parent:
+    type: Proceedings
+    title: International Society for Music Information Retrieval Conference (ISMIR)
+
+mcfee2015librosa:
+  type: Article
+  author:
+    - Brian McFee
+    - Colin Raffel
+    - Dawen Liang
+    - Daniel P. W. Ellis
+    - Matt McVicar
+    - Eric Battenberg
+    - Oriol Nieto
+  title: "librosa: Audio and music signal analysis in Python"
+  date: 2015
+  page-range: 18-25
+  url: https://www.researchgate.net/publication/328777063_librosa_Audio_and_Music_Signal_Analysis_in_Python
+  parent:
+    type: Proceedings
+    title: Proceedings of the 14th Python in Science Conference
+
+pedregosa2011sklearn:
+  type: Article
+  author:
+    - Fabian Pedregosa
+    - others
+  title: "Scikit-learn: Machine learning in Python"
+  date: 2011
+  page-range: 2825-2830
+  url: https://arxiv.org/abs/1201.0490
+  parent:
+    type: Periodical
+    title: Journal of Machine Learning Research
+    volume: 12
+
+choi2017crnn:
+  type: Article
+  author:
+    - Keunwoo Choi
+    - György Fazekas
+    - Mark Sandler
+    - Kyunghyun Cho
+  title: Convolutional recurrent neural networks for music classification
+  date: 2017
+  url: https://arxiv.org/abs/1609.04243
+  parent:
+    type: Proceedings
+    title: IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)
+
+pons2019musicnn:
+  type: Article
+  author:
+    - Jordi Pons
+    - Xavier Serra
+  title: "musicnn: Pre-trained convolutional neural networks for music audio tagging"
+  date: 2019
+  url: https://arxiv.org/abs/1909.06654
+  parent:
+    type: Proceedings
+    title: Late-breaking/demo session, International Society for Music Information Retrieval Conference (ISMIR)
+  note: "arXiv:1909.06654"
+
+hershey2017vggish:
+  type: Article
+  author:
+    - Shawn Hershey
+    - others
+  title: "CNN architectures for large-scale audio classification"
+  date: 2017
+  url: https://arxiv.org/abs/1609.09430
+  parent:
+    type: Proceedings
+    title: IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)
+
+alonso2023maest:
+  type: Article
+  author:
+    - Pablo Alonso-Jiménez
+    - Xavier Serra
+    - Dmitry Bogdanov
+  title: Efficient supervised training of audio transformers for music representation learning
+  date: 2023
+  url: https://arxiv.org/abs/2309.16418
+  parent:
+    type: Proceedings
+    title: International Society for Music Information Retrieval Conference (ISMIR)
+
+fma_github:
+  type: Web
+  title: "FMA: A dataset for music analysis. Repozytorium kodu i danych. Witryna internetowa"
+  url: https://github.com/mdeff/fma
+  accessed: 2026-10-27
+
+fma_licencje_hf:
+  type: Web
+  title: "FMA: zestawienie licencji nagrań wg czasu trwania. Witryna internetowa (Hugging Face)"
+  url: https://huggingface.co/buckets/Work001/FMA
+  accessed: 2026-10-27
+  note: Opracowanie niezależne od autorów FMA
+
+essentia_licensing:
+  type: Web
+  title: "Licensing Essentia. Essentia, Music Technology Group, UPF. Witryna internetowa"
+  url: https://essentia.upf.edu/licensing_information.html
+  accessed: 2026-10-27
+
+essentia_models_license:
+  type: Web
+  title: "Essentia models: licencje i pochodzenie modeli. Witryna internetowa"
+  url: https://essentia.upf.edu/models/LICENSE
+  accessed: 2026-10-27
+
+essentia_models:
+  type: Web
+  title: "Essentia models. Music Technology Group, UPF. Witryna internetowa"
+  url: https://essentia.upf.edu/models.html
+  accessed: 2026-10-27
+
+dyrektywa_dsm:
+  type: Web
+  title: "Dyrektywa Parlamentu Europejskiego i Rady (UE) 2019/790 z dnia 17 kwietnia 2019 r. w sprawie prawa autorskiego i praw pokrewnych na jednolitym rynku cyfrowym"
+  date: 2019
+  url: https://eur-lex.europa.eu/eli/dir/2019/790/oj
+  accessed: 2026-10-27
