@@ -55,7 +55,7 @@
 // niewidoczne cytowanie wszystkich pozycji w żądanej kolejności.
 #let kolejnosc-bibliografii(..klucze) = place(top + left, hide({
   for k in klucze.pos() {
-    cite(k)
+    //cite(k)
   }
 }))
 
