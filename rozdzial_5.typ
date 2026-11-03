@@ -18,30 +18,43 @@ Harmonogram obejmuje okres od października 2026 do końca stycznia 2027 (zakoń
 
 #figure(
   {
-    set text(size: 9pt)
-    let months = (
-      [X 26], [XI 26], [XII 26], [I 27],
+    set text(size: 8pt)
+
+    let periods = (
+      [X 1–15],
+      [X 16–31],
+      [XI 1–15],
+      [XI 16–30],
+      [XII 1–15],
+      [XII 16–31],
+      [I 1–15],
+      [I 16–31],
     )
+
+    // Zadanie, początek, koniec (wyłącznie), wykonane
     let tasks = (
-      ([Konsultacje i przegląd literatury], 0, 1, true),
-      ([Wybór zbiorów i kryteriów sukcesu], 0, 2, true),
-      ([Analiza wymagań i hipoteza], 1, 2, true),
-      ([Przygotowanie danych FMA + GTZAN], 1, 2, false),
-      ([Ekstrakcja cech i spektrogramów], 1, 3, false),
-      ([Implementacja drzewa decyzyjnego], 2, 3, false),
-      ([Implementacja i trening CNN], 2, 4, false),
-      ([Ewaluacja i porównanie modeli], 3, 4, false),
-      ([Testy na GTZAN + analiza], 3, 4, false),
-      ([Redakcja pracy i dokumentacja kodu], 2, 4, false),
+      ([Konsultacje i przegląd literatury], 0, 2, true),
+      ([Wybór zbiorów i kryteriów sukcesu], 0, 3, true),
+      ([Analiza wymagań i hipoteza], 1, 3, true),
+      ([Przygotowanie danych FMA + GTZAN], 2, 4, false),
+      ([Ekstrakcja cech i spektrogramów], 3, 5, false),
+      ([Implementacja drzewa decyzyjnego], 4, 6, false),
+      ([Implementacja i trening CNN], 4, 7, false),
+      ([Ewaluacja i porównanie modeli], 6, 8, false),
+      ([Testy na GTZAN + analiza], 6, 8, false),
+      ([Redakcja pracy i dokumentacja kodu], 4, 8, false),
     )
-    let n = months.len()
-    let cell-w = 2.2cm
+
+    let n = periods.len()
+    let cell-w = 1.2cm
     let label-w = 5.8cm
     let row-h = 0.55cm
+
     block(
       stroke: 0.4pt,
       inset: 0pt,
       {
+        // Nagłówek
         grid(
           columns: (label-w, ..(cell-w,) * n),
           rows: row-h,
@@ -49,10 +62,17 @@ Harmonogram obejmuje okres od października 2026 do końca stycznia 2027 (zakoń
           stroke: 0.3pt,
           align: center + horizon,
           [*Zadanie*],
-          ..months.map(m => strong(m)),
+          ..periods.map(p => strong(p)),
         )
+
+        // Wiersze z zadaniami
         for (i, (name, from, to, done)) in tasks.enumerate() {
-          let bg = if calc.even(i) { luma(250) } else { white }
+          let bg = if calc.even(i) {
+            luma(250)
+          } else {
+            white
+          }
+
           grid(
             columns: (label-w, ..(cell-w,) * n),
             rows: row-h,
@@ -60,13 +80,18 @@ Harmonogram obejmuje okres od października 2026 do końca stycznia 2027 (zakoń
             stroke: 0.3pt,
             align: (left + horizon, ..(center + horizon,) * n),
             inset: (x: 4pt, y: 2pt),
-            text(size: 8.5pt, name),
+            text(size: 8pt, name),
+
             ..range(n).map(j => {
               if j >= from and j < to {
                 rect(
                   width: 100%,
                   height: 70%,
-                  fill: if done { rgb("#2e7d32") } else { rgb("#1565c0") },
+                  fill: if done {
+                    rgb("#2e7d32")
+                  } else {
+                    rgb("#1565c0")
+                  },
                   radius: 1pt,
                 )
               } else {
@@ -77,18 +102,38 @@ Harmonogram obejmuje okres od października 2026 do końca stycznia 2027 (zakoń
         }
       },
     )
+
     v(0.4em)
+
+    // Legenda
     grid(
       columns: (auto, auto, auto, auto),
       column-gutter: 1.2em,
       align: horizon,
-      rect(width: 12pt, height: 8pt, fill: rgb("#2e7d32"), radius: 1pt),
+
+      rect(
+        width: 12pt,
+        height: 8pt,
+        fill: rgb("#2e7d32"),
+        radius: 1pt,
+      ),
       text(size: 8.5pt)[wykonane],
-      rect(width: 12pt, height: 8pt, fill: rgb("#1565c0"), radius: 1pt),
+
+      rect(
+        width: 12pt,
+        height: 8pt,
+        fill: rgb("#1565c0"),
+        radius: 1pt,
+      ),
       text(size: 8.5pt)[planowane],
     )
   },
-  caption: [Diagram Gantta projektu (X 2026 – I 2027). Zielone paski oznaczają zadania już zrealizowane. Prace kończą się przed końcem stycznia.],
+  caption: [
+    Diagram Gantta projektu w podziale na okresy dwutygodniowe
+    (październik 2026 – styczeń 2027).
+    Zielone paski oznaczają zadania już zrealizowane,
+    a niebieskie – zadania planowane.
+  ],
 ) <fig:gantt>
 
 *Komentarz do harmonogramu.*

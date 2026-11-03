@@ -39,7 +39,7 @@ Istniejące rozwiązania można podzielić na trzy grupy, odpowiadające podejś
 
 *Konwolucyjne sieci neuronowe na spektrogramach.* Sygnał jest przekształcany do reprezentacji czasowo-częstotliwościowej (np. mel-spektrogramu), a sieć sama uczy się cech istotnych dla klasyfikacji. Przykładem są konwolucyjno-rekurencyjne sieci do klasyfikacji muzyki @choi2017crnn oraz sieci _musicnn_ @pons2019musicnn, zaprojektowane z myślą o dźwięku muzycznym.
 
-*Wstępnie wytrenowane reprezentacje (embeddingi).* Model wytrenowany na dużym zbiorze (np. VGGish @hershey2017vggish, model Google powiązany z AudioSet, lub transformery z rodziny MAEST @alonso2023maest) zamienia nagranie na wektor, który następnie klasyfikuje prosty model, na przykład perceptron wielowarstwowy. Gotowe modele tego typu udostępnia projekt Essentia @essentia_models; MAEST przewiduje taksonomię 400 stylów muzycznych opartą na metadanych serwisu Discogs.
+*Wstępnie wytrenowane reprezentacje (#emph[embeddingi]).* Model wytrenowany na dużym zbiorze (np. VGGish @hershey2017vggish, model Google powiązany z AudioSet, lub transformery z rodziny MAEST @alonso2023maest) zamienia nagranie na wektor, który następnie klasyfikuje prosty model, na przykład perceptron wielowarstwowy. Gotowe modele tego typu udostępnia projekt Essentia @essentia_models; MAEST przewiduje taksonomię 400 stylów muzycznych opartą na metadanych serwisu Discogs.
 
 Projekt realizowany w ramach niniejszej pracy koncentruje się na porównaniu dwóch pierwszych grup w jednolitym protokole eksperymentalnym, zgodnie z rekomendacją eksperta. Trzecia grupa pozostaje dodatkowym kierunkiem, który może posłużyć jako przyszły punkt odniesienia w możliwym dalszym rozwoju projektu (np. do implementacji majority voting, tak jak sugerował to ekspert).
 
@@ -103,33 +103,46 @@ W projekcie rozważano trzy zbiory danych. Ich podstawowe parametry zestawiono w
 
 #figure(
   table(
-    columns: (1.05fr, 1.45fr, 1.9fr, 2.6fr),
-    align: (left, left, left, left),
+    columns: (1.05fr, 1.3fr, 1.7fr, 1.5fr, 2.6fr),
+    align: (left, left, left, left, left),
     inset: (x: 5pt, y: 4pt),
-    table.header([*Zbiór*], [*Rozmiar*], [*Etykiety*], [*Uwagi*]),
+
+    table.header(
+      [*Zbiór*],
+      [*Rozmiar*],
+      [*Etykiety*],
+      [*Licencja*],
+      [*Uwagi*],
+    ),
+
     [GTZAN],
     [1000 fragmentów po 30 s],
     [10 gatunków po 100 fragmentów],
+    [CC BY 4.0],
     [Zbalansowany i mały; znane wady: powtórzenia, błędne etykiety, silna obecność pojedynczych wykonawców w klasach @sturm2014gtzan.],
 
     [FMA (small)],
     [8000 fragmentów po 30 s],
     [8 gatunków po 1000 fragmentów],
+    [CC BY 4.0 / CC BY-NC 4.0 / CC BY-NC-SA 4.0 / CC BY-NC-ND 4.0 / CC BY-ND 4.0],
     [Najmniejszy wariant FMA, zbalansowany @defferrard2017fma.],
 
     [FMA (medium)],
     [25 000 fragmentów po 30 s],
     [16 gatunków nadrzędnych, niezrównoważone],
+    [CC BY 4.0 / CC BY-NC 4.0 / CC BY-NC-SA 4.0 / CC BY-NC-ND 4.0 / CC BY-ND 4.0],
     [Główny kandydat projektu. Dostępne metadane z wykonawcą, co umożliwia podział rozłączny względem wykonawców @defferrard2017fma.],
 
     [FMA (large, full)],
     [106 574 utwory],
     [161 gatunków w hierarchii],
+    [Licencje Creative Commons zależne od nagrania],
     [Wariant _large_ zawiera fragmenty 30 s, wariant _full_ pełne nagrania. Bardzo duże, przekraczające założone zasoby obliczeniowe projektu @defferrard2017fma.],
 
     [MTG-Jamendo],
-    [ponad 55 000 pełnych nagrań],
+    [Ponad 55 000 pełnych nagrań],
     [195 tagów, w tym 87 gatunkowych; wielokrotne etykiety],
+    [CC BY-NC-SA 4.0],
     [Zadanie wieloetykietowe, co odbiega od założenia jednego gatunku na utwór @bogdanov2019mtgjamendo.],
   ),
   caption: [Porównanie dostępnych zbiorów danych],
