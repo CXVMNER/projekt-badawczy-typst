@@ -7,9 +7,8 @@
     inset: (x: 5pt, y: 4pt),
     table.header([*Data*], [*Co zostało zmienione*]),
     [20.10.2026], [Pierwsza wersja],
-    [27.10.2026],
-    [Dodano przegląd podobnych rozwiązań i rozbudowano
-      analizę wymagań],
+    [27.10.2026], [Dodano przegląd podobnych rozwiązań i rozbudowano analizę wymagań],
+    [3.11.2026], [Dodano hipotezę badawczą, zakres projektu, harmonogram, specyfikację projektu i opis wymagań]
   ),
   caption: [Historia zmian],
 ) <tab:changelog>

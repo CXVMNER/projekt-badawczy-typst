@@ -2,7 +2,7 @@
 
 == Cel projektu
 
-Celem projektu jest opracowanie i ocena modelu uczenia maszynowego umożliwiającego automatyczne rozpoznawanie gatunków muzycznych na podstawie sygnału audio. Zadanie polega na przyporządkowaniu utworu do jednej z *5 wcześniej zdefiniowanych kategorii (gatunków)* wybranych ze zbioru FMA (por. podrozdział _Zakres danych i kryteria sukcesu_). Sukces projektu mierzony jest ilościowo: celem jest osiągnięcie przez sieć CNN wartości macro-F1 co najmniej 0,60 oraz F1 co najmniej 0,50 dla co najmniej 3 z 5 gatunków, a przez drzewo decyzyjne macro-F1 co najmniej 0,45 (szczegóły w @tab:cele).
+Celem projektu jest opracowanie i ocena modelu uczenia maszynowego umożliwiającego automatyczne rozpoznawanie gatunków muzycznych na podstawie sygnału audio. Zadanie polega na przyporządkowaniu utworu do jednej z *5 wcześniej zdefiniowanych kategorii (gatunków)* wybranych ze zbioru FMA (por. podrozdział _Zakres projektu i kryteria sukcesu_). Sukces projektu mierzony jest ilościowo: celem jest osiągnięcie przez sieć CNN wartości macro-F1 co najmniej 0,60 oraz F1 co najmniej 0,50 dla co najmniej 3 z 5 gatunków, a przez drzewo decyzyjne macro-F1 co najmniej 0,45 (szczegóły w @tab:cele).
 
 == Charakterystyka problemu
 
@@ -16,7 +16,7 @@ W projekcie zostaną wykorzystane sieci neuronowe typu CNN oraz drzewa decyzyjne
 
 Oczekiwanym rezultatem jest opracowanie modelu klasyfikującego utwory muzyczne oraz porównanie skuteczności wybranych metod. Analiza pozwoli określić, które cechy audio i algorytmy sprawdzają się najlepiej oraz jakie ograniczenia występują w procesie klasyfikacji.
 
-== Zakres danych i kryteria sukcesu
+== Zakres projektu i kryteria sukcesu
 
 Zbiorem głównym jest FMA-medium, w którym dostępnych jest 16 gatunków nadrzędnych o bardzo nierównej liczebności @defferrard2017fma. Do eksperymentów wybrano *5 gatunków*: Classical, Hip-Hop, Jazz, Pop i Rock. Liczba ta pozwala utrzymać zbalansowane klasy przy rozsądnej liczbie nagrań. Przy 5 klasach skuteczność klasyfikatora losowego wynosi 20%, co jest punktem odniesienia dla wyników. Liczebność klas zostanie wyrównana przez losowe ograniczenie liczby utworów do najmniejszej z wybranych klas (nie mniej niż 300 utworów na klasę). // TODO: zatwierdzić listę po sprawdzeniu liczebności klas w tracks.csv
 
@@ -41,16 +41,30 @@ Do oceny na danych z innego źródła wykorzystany zostanie zbiór GTZAN @tzanet
 
 Wartości te należy odnosić do skuteczności klasyfikatora losowego (20% przy 5 klasach, zarówno na FMA, jak i na GTZAN). Za wynik minimalny, poniżej którego eksperyment uznaje się za nieudany, przyjmuje się macro-F1 niższe niż dwukrotność tej wartości. O przewadze jednej metody nad drugą wnioskuje się wyłącznie wtedy, gdy różnica macro-F1 przekracza zmienność między uruchomieniami (3 ziarna losowości) i mieści się poza 95% przedziałem ufności wyznaczonym metodą bootstrap. Dodatkowo raportowana będzie dokładność (accuracy) oraz macierz pomyłek.
 
+== Hipoteza badawcza
+Sieci konwolucyjne (CNN) analizujące mel-spektrogramy osiągną wyższą wartość macro-F1 na zbiorze testowym FMA (oraz na zbiorze kontrolnym GTZAN) niż drzewa decyzyjne oparte na ręcznie wyodrębnionych cechach akustycznych, przy zachowaniu powtarzalności wyników (odchylenie standardowe macro-F1 z trzech ziaren ≤ 0,03).
+
+=== Pytania badawcze
+
+Projekt ma odpowiedzieć na następujące pytania:
+
+1. Czy sieć CNN trenowana na mel-spektrogramach osiąga istotnie wyższą skuteczność (macro-F1) w rozpoznawaniu 5 wybranych gatunków niż drzewo decyzyjne korzystające z cech akustycznych?
+2. Które cechy akustyczne (MFCC, chroma, tempo, charakterystyki widmowe) mają największy wpływ na decyzje drzewa i jak koreluje to z pomyłkami modelu?
+3. W jakim stopniu modele wytrenowane na FMA generalizują się na nagrania z GTZAN (te same 5 gatunków)?
+4. Jak silny jest wpływ podziału rozłącznego względem wykonawców na uzyskane wyniki w porównaniu z losowym podziałem (kontrola metodologiczna)?
+
 == Wymagania funkcjonalne
 
 - Wczytanie nagrania audio i przygotowanie danych wejściowych (cechy akustyczne dla drzewa decyzyjnego, spektrogramy dla sieci CNN).
 - Klasyfikacja utworu do jednego ze zdefiniowanych gatunków muzycznych.
 - Ocena obu modeli na zbiorze testowym i porównanie ich wyników.
+- Generowanie raportów: macro-F1, F1 per klasa, macierz pomyłek, dokładność.
 
 == Wymagania niefunkcjonalne
 
 - Powtarzalność eksperymentów (stały podział danych rozłączny względem wykonawców, zapisane ziarno losowości, 3 uruchomienia z różnymi ziarnami).
 - Ocena skuteczności za pomocą standardowych miar: macro-F1 (miara główna), dokładność, F1 dla każdej klasy i macierz pomyłek.
+- Kod i skrypty muszą umożliwiać odtworzenie wyników na tej samej konfiguracji sprzętowej.
 
 == Założenia i kwestie do ustalenia
 

@@ -57,24 +57,14 @@ Po czwarte, rozwój metod przesunął się od ręcznie projektowanych cech ku si
 
 == Uwarunkowania licencyjne
 
-Poniżej zestawiono licencje elementów, z których projekt korzysta lub może skorzystać: zbiorów danych, bibliotek oraz gotowych modeli. Informacje pochodzą ze stron projektów i dokumentacji wskazanych w bibliografii (stan na 27.10.2026). Przed publikacją wyników lub wydaniem kodu należy sprawdzić je ponownie, ponieważ licencje mogą ulec zmianie.
+Poniżej zestawiono licencje bibliotek i modeli, z których projekt korzysta lub może skorzystać. Licencje zbiorów danych są w tabeli porównania zbiorów (@tab:bazy). Informacje pochodzą ze stron projektów i dokumentacji wskazanych w bibliografii (stan na 27.10.2026). Przed publikacją wyników lub wydaniem kodu należy sprawdzić je ponownie, ponieważ licencje mogą ulec zmianie.
 
 #figure(
   table(
-    columns: (1.15fr, 1.75fr, 2.7fr),
+    columns: (1.3fr, 1.6fr, 2.6fr),
     align: (left, left, left),
     inset: (x: 5pt, y: 4pt),
     table.header([*Element*], [*Licencja*], [*Konsekwencje dla projektu*]),
-    [FMA – metadane], [CC BY 4.0], [Dowolne użycie z podaniem autorów zbioru @defferrard2017fma.],
-    [FMA – nagrania],
-    [różne licencje Creative Commons, ustalane przez wykonawców],
-    [Użycie badawcze jest dopuszczalne. Część nagrań ma klauzule NC (bez użycia komercyjnego) lub ND (bez utworów zależnych) @fma_github @fma_licencje_hf.],
-    [GTZAN],
-    [brak jawnej licencji],
-    [Zbiór zawiera fragmenty komercyjnych nagrań @sturm2014gtzan. Użycie wyłącznie badawcze, bez dalszego rozpowszechniania nagrań.],
-    [MTG-Jamendo],
-    [nagrania na licencjach Creative Commons (część z klauzulą NC); kod i metadane repozytorium Apache 2.0],
-    [Użycie badawcze jest dopuszczalne; użycie komercyjne wymaga wyboru nagrań na licencjach bez NC @bogdanov2019mtgjamendo.],
     [Essentia (biblioteka)],
     [AGPL-3.0; licencja komercyjna na zamówienie],
     [Dla pracy dyplomowej bez udostępniania usługi sieciowej obowiązki są ograniczone. Wdrożenie komercyjne wymaga licencji lub zamiany biblioteki @essentia_licensing.],
@@ -86,14 +76,13 @@ Poniżej zestawiono licencje elementów, z których projekt korzysta lub może s
     [librosa], [ISC], [Licencja permisywna @mcfee2015librosa.],
     [scikit-learn], [BSD 3-Clause], [Licencja permisywna @pedregosa2011sklearn.],
     [PyTorch / TensorFlow], [BSD / Apache 2.0], [Licencje permisywne, dozwolone użycie komercyjne.],
-    table.hline(stroke: 0.8pt),
   ),
-  caption: [Licencje zbiorów danych, bibliotek i modeli],
+  caption: [Licencje bibliotek i modeli],
 ) <tab:licencje>
 
 // TODO: zweryfikować licencje librosa, scikit-learn, PyTorch, TensorFlow w repozytoriach przed oddaniem pracy
 
-Z zestawienia (@tab:licencje) wynikają dwie obserwacje. Po pierwsze, licencje Creative Commons z klauzulą NC lub ND dotyczą większości nagrań w zbiorze FMA, a udział nagrań na licencji CC BY 4.0 jest niewielki @fma_licencje_hf. Po drugie, wstępnie wytrenowane modele Essentia i MAEST są udostępniane na licencji niekomercyjnej, a prawo do użycia komercyjnego trzeba uzyskać odrębnie.
+Z zestawienia (@tab:licencje) wynika, że wstępnie wytrenowane modele Essentia i MAEST są udostępniane na licencji niekomercyjnej, a prawo do użycia komercyjnego trzeba uzyskać odrębnie. Biblioteki librosa, scikit-learn oraz frameworki PyTorch i TensorFlow mają licencje permisywne.
 
 Warto zaznaczyć, że sam proces uczenia modelu nie polega na redystrybucji nagrań, lecz na ich analizie. Dyrektywa (UE) 2019/790 przewiduje wyjątki dla eksploracji tekstu i danych (art. 3 dla organizacji badawczych, art. 4 z możliwością zastrzeżenia przez uprawnionych) @dyrektywa_dsm. Nie rozstrzyga to jednak wszystkich wątpliwości dotyczących nagrań z klauzulą ND, dlatego przyjęto ostrożne podejście opisane w kolejnym podrozdziale.
 
@@ -146,6 +135,6 @@ W projekcie rozważano trzy zbiory danych. Ich podstawowe parametry zestawiono w
   caption: [Porównanie dostępnych zbiorów danych],
 ) <tab:bazy>
 
-*GTZAN* jest najczęściej używanym zbiorem w literaturze, dzięki czemu pozwala porównać wyniki z pracami innych autorów, ale ze względu na wady opisane w stanie wiedzy nie nadaje się na jedyny zbiór oceny. *FMA* jest największym otwartym zbiorem z nagraniami o dobrej jakości, metadanymi wykonawców i hierarchią gatunków, a zostało przygotowane do oceny algorytmów MIR @defferrard2017fma. Wariant _medium_ stanowi kompromis między liczbą danych a zasobami obliczeniowymi. *MTG-Jamendo* jest przeznaczony do automatycznego tagowania, czyli zadania wieloetykietowego, więc jego użycie wymagałoby zmiany sformułowania problemu. W pozostałych zbiorach spotykanych w literaturze (np. MagnaTagATune, Million Song Dataset, AudioSet) dostępność nagrań lub ich jakość stanowią ograniczenie @defferrard2017fma, dlatego nie zostały uwzględnione.
+*GTZAN* jest najczęściej używanym zbiorem w literaturze, dzięki czemu pozwala porównać wyniki z pracami innych autorów, ale ze względu na wady opisane w stanie wiedzy nie nadaje się na jedyny zbiór oceny. *FMA* jest największym otwartym zbiorem z nagraniami o dobrej jakości, metadanymi wykonawców i hierarchią gatunków, a zostało przygotowane do oceny algorytmów MIR @defferrard2017fma. Licencje Creative Commons z klauzulą NC lub ND dotyczą większości nagrań w FMA, a udział nagrań na licencji CC BY 4.0 jest niewielki @fma_licencje_hf. Wariant _medium_ stanowi kompromis między liczbą danych a zasobami obliczeniowymi. *MTG-Jamendo* jest przeznaczony do automatycznego tagowania, czyli zadania wieloetykietowego, więc jego użycie wymagałoby zmiany sformułowania problemu. W pozostałych zbiorach spotykanych w literaturze (np. MagnaTagATune, Million Song Dataset, AudioSet) dostępność nagrań lub ich jakość stanowią ograniczenie @defferrard2017fma, dlatego nie zostały uwzględnione.
 
 Na podstawie powyższej analizy jako zbiór główny wybrano FMA (medium), a jako zbiór do dodatkowych testów porównawczych i oceny na danych z innego źródła – GTZAN. Konkretny podzbiór gatunków i kryteria sukcesu opisano w rozdziale 4.
